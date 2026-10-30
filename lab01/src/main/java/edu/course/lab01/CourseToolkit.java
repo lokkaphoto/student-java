@@ -15,4 +15,62 @@ public final class CourseToolkit {
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
+
+    /** Возвращает false Для числа меньше 2, составных чисел и квадратов. 
+     * True на простых числах
+      */
+     public static boolean isPrime(int number) {
+        if (number < 2 ){
+        return false;
+        }
+
+        for (int divisor = 2; divisor * divisor <= number; divisor++) {
+            if (number % divisor == 0){
+                return false;
+            }
+        }
+        return true;
+     }
+
+     /**Полиндром */
+
+     public static boolean isPalindrome(String text) {
+    if (text == null) {
+        throw new IllegalArgumentException("Строка не может быть null");
+    }
+
+    int left = 0;
+    int right = text.length() - 1;
+
+    while (left < right) {
+        if (text.charAt(left) != text.charAt(right)) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+public static double average(int[] values) {
+    if (values == null) {
+        throw new IllegalArgumentException("Массив не может быть null");
+    }
+
+    if (values.length == 0) {
+        throw new IllegalArgumentException("Массив не может быть пустым");
+    }
+
+    double sum = 0;
+    for (int i = 0; i < values.length; i++) {
+        sum += values[i];
+    }
+
+    return sum / values.length;
+}
+
+
+
+
 }
